@@ -28,6 +28,16 @@ calculadoraBackend.get("/calculo", suma)
 
 calculadoraBackend.get("/resta", resta)
 
+const multi = (req, res) => {
+    var multi1 = Number(req.query.parametro1)
+    var multi2 = Number(req.query.parametro2)
+    var resultado = multi1 * multi2
+
+    res.send(`multi: ${multi1} * ${multi2} = ${resultado}`)
+}
+
+calculadoraBackend.get("/multi", multi)
+
 calculadoraBackend.listen(port, () => {
     console.log(`Calculadora escuchando en http://localhost:${port}`)
 })
